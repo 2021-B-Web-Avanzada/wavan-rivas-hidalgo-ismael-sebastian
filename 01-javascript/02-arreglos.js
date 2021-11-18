@@ -13,9 +13,9 @@ for(let numero of arreglo) {    //Valores
     console.log('numero', numero);
 }
 //for in
-for(let indice in arreglo) {    //Valores
+for(let indice in arreglo) {    //Indice
     arreglo[indice];
-    console.log('indice', indices);
+    console.log('indice', indice);
 }
 
 let objetoPrueba = {a: '1',b: '2', c: '3'};
