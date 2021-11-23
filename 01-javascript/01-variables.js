@@ -153,14 +153,6 @@ delete rafael.nombre;
 console.log(rafael);
 console.log(lenin);
 
-//Clonado de arreglos
-let arregloNumeros = [1,2,3,4,5];
-let arregloClonado = Object.assign([], arregloNumeros);
-console.log(arregloNumeros);
-console.log(arregloClonado);
-arregloNumeros[0] = 200;
-arregloClonado[0] = 100;
-console.log(arregloNumeros);
-console.log(arregloClonado);
+
 
 
