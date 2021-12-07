@@ -1,4 +1,4 @@
-//11-inquirer.js
+//11-inquierer.js
 const inquirer = require('inquirer');
 //npm install inquirer
 async function main() {
@@ -21,3 +21,4 @@ async function main() {
         console.log(e);
     }
 }
+ main()
