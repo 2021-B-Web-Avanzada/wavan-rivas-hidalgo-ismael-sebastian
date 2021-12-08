@@ -135,3 +135,14 @@ const respuestaEvery = arreglo
         }
     );
 console.log('respuestaEvery', respuestaEvery);
+
+//REDUCE            izq -> der
+//REDUCE Right      der -> izq
+const respuestaReduce = arreglo
+    .reduce(
+        function (valorAcumulado, valorActual, inidice, arreglo){
+            return (valorAcumulado - valorActual.nota);
+        },
+        100 // valor inicial del acumulador
+    );
+console.log('respuestaReduce', respuestaReduce); //100 - X = -46
