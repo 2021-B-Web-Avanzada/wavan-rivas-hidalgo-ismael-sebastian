@@ -8,6 +8,7 @@ import {RutaUsuarioComponent} from "./ruta-usuario/ruta-usuario.component";
 import {RutaPostComponent} from "./ruta-post/ruta-post.component";
 import {RutaAppComponent} from "./ruta-app/ruta-app.component";
 import {EstaLogeadoGuard} from "./servicios/auth/esta-logeado.guard";
+import {EsAdministradorGuard} from "./servicios/auth/es-administrador.guard";
 
 //Login
 //Inicio
@@ -33,6 +34,11 @@ const routes: Routes = [
     canActivate: [ EstaLogeadoGuard ],
     component: RutaInicioComponent,
   },
+  { // app-routing.module.ts
+    path: 'lazy-inventario',
+    loadChildren: () => import('./modulos/modulo-inventario/modulo-inventario.module')
+      .then(m => m.ModuloInventarioModule)
+  },
   {
     path: 'app',
     component: RutaAppComponent,
@@ -44,6 +50,7 @@ const routes: Routes = [
       {
         path: 'post',
         component: RutaPostComponent,
+        canActivate: [EsAdministradorGuard]
       }
     ]
   },
