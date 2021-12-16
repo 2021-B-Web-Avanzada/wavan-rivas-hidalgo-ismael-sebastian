@@ -1,0 +1,1 @@
+[{"idGenero":1,"nombreGenero":"Terror","numSubgeneros":4,"generoActivo":true,"creadorGenero":null},{"idGenero":2,"nombreGenero":"Comedia","numSubgeneros":7,"generoActivo":false,"creadorGenero":null}]
