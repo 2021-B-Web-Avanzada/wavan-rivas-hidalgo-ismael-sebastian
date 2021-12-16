@@ -1,0 +1,1 @@
+[{"idPelicula":2,"nombrePelicula":"Blair Witch","gananciasPelicula":98754654.23,"enCartelera":true,"idGenero":1},{"idPelicula":3,"nombrePelicula":"El gran dictador","gananciasPelicula":88888855.55,"enCartelera":false,"idGenero":2}]
