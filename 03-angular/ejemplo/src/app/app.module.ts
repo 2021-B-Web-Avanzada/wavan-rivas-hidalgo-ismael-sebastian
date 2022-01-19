@@ -17,6 +17,7 @@ import {BannerImagenesComponent} from "./componentes/banner-imagenes/banner-imag
 import {BannerImagenesModule} from "./componentes/banner-imagenes/banner-imagenes.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { RutaUsuarioPerfilComponent } from './rutas/ruta-usuario-perfil/ruta-usuario-perfil.component';
 
 @NgModule({
   declarations: [   //Componentes
@@ -27,7 +28,8 @@ import {FormsModule} from "@angular/forms";
     RutaInicioComponent,
     RutaUsuarioComponent,
     RutaPostComponent,
-    RutaAppComponent
+    RutaAppComponent,
+    RutaUsuarioPerfilComponent
   ],
   imports: [  //Módulos Importados
     BrowserModule,
