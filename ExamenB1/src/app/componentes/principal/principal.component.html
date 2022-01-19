@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="header">
+
+    <!--    BANNER-->
+    <div class="header__banner" [ngStyle]="{
+              'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'
+           }">
+      <h2>{{tendencia.results![1].title}}</h2>
+      <div class="header__buttons">
+
+        <button class="play-button">
+          <mat-icon>arrow_right</mat-icon>
+          <span>Reproducir</span>
+        </button>
+
+        <button class="more-button">
+          <mat-icon>info</mat-icon>
+          <span>Más Información</span>
+        </button>
+      </div>
+    </div> <!--FIN BANNER-->
+
+    <app-navbar></app-navbar> <!--NavBar-->
+
+  </div>
+  <div class="body" style="margin-top: 26rem;">
+    <app-slider title="Populares en Netflix" [peliculas]="popular" [sliderConfig]="sliderConfig"></app-slider>
+    <app-slider title="Tendencias" [peliculas]="tendencia" [sliderConfig]="sliderConfig"></app-slider>
+    <app-slider title="Peliculas premiadas" [peliculas]="mejor_valoradas" [sliderConfig]="sliderConfig"></app-slider>
+    <app-slider title="Originales de Netflix" [peliculas]="originales" [sliderConfig]="sliderConfig"></app-slider>
+    <app-slider title="Reproduciendo" [peliculas]="reproduciendo" [sliderConfig]="sliderConfig"></app-slider>
+  </div>
+</div>
+
+
+
