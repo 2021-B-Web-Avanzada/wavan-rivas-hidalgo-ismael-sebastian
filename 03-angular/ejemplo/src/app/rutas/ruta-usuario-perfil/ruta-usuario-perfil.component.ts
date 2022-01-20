@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 import {UserJphService} from "../../servicios/http/user-jph.service";
 import {UserJphInterface} from "../../servicios/http/interfaces/user-jph.interface";
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-ruta-usuario-perfil',
@@ -28,12 +28,25 @@ export class RutaUsuarioPerfilComponent implements OnInit {
         {
           email: new FormControl(
             {
-              value: 'ejemplo@ejemplo.com',
+              value: '',
               disabled: false
             },
-            [])
+            [
+              Validators.required,
+              Validators.minLength(3),
+            ])
         }
       );
+    const cambio$ = this.formGroup.valueChanges;
+    cambio$.subscribe({
+      next: (valor) =>{
+        if(this.formGroup?.valid){
+          console.log('YUPI');
+        }else{
+          console.log(':c')
+        }
+      }
+    })
 
    const parametroRuta$ = this.activatedRoute.params
    parametroRuta$
