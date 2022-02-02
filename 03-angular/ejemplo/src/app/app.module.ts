@@ -27,6 +27,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { ModalEjemploComponent } from './componentes/modales/modal-ejemplo/modal-ejemplo.component';
 import {NgbButtonsModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PrimeIcons} from "primeng/api";
+import {SocketIoModule} from "ngx-socket-io";
 
 @NgModule({
   declarations: [   //Componentes
@@ -55,9 +56,14 @@ import {PrimeIcons} from "primeng/api";
     MatButtonModule,
     MatDialogModule,
     NgbModule,
-    NgbButtonsModule
+    NgbButtonsModule,
+    SocketIoModule.forRoot({
+      url: 'http://localhost:8080',
+      options: {}
+    })
   ],
-  providers: [  //Servicios
+  //Servicios
+  providers: [
     AuthService,
     EstaLogeadoGuard,
     EsAdministradorGuard
