@@ -1,0 +1,81 @@
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentGenero" class="-**63**edit-form">
+    <h4>Genero</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Genero</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentGenero.nombre_genero"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="subgeneros">Número de subgeneros</label>
+        <input
+          type="number"
+          class="form-control"
+          id="subgeneros"
+          required
+          [(ngModel)]="currentGenero.num_subgeneros"
+          name="subgeneros"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ganancias">Ganancias del género</label>
+        <input
+          type="number"
+          class="form-control"
+          id="ganancias"
+          required
+          [(ngModel)]="currentGenero.genero_ganancias"
+          name="ganancias"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Genero Activo:</strong></label>
+        {{ currentGenero.genero_activo ? "Activo" : "No activo" }}
+      </div>
+    </form>
+
+    <br>
+    <button
+      class="btn btn-secondary mr-2"
+      *ngIf="currentGenero.genero_activo"
+      (click)="updateActivo(false)"
+    >
+      No activo
+    </button>
+    <button
+      *ngIf="!currentGenero.genero_activo"
+      class="btn btn-success mr-2"
+      (click)="updateActivo(true)"
+    >
+      Activo
+    </button>
+
+    <br>
+    <br>
+
+    <button class="btn btn-danger mr-2" (click)="deleteGenero()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="updateGenero()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentGenero">
+    <br />
+    <p>No se puede acceder a este género</p>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="genero">Genero</label>
+        <input
+          type="number"
+          class="form-control"
+          id="genero"
+          required
+          [(ngModel)]="pelicula.genero"
+          name="genero"
+        />
+      </div>
+      <div class="form-group">
+        <label for="title">Película</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="pelicula.nombre_pelicula"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ganancias">Ganancias</label>
+        <input
+          type="number"
+          class="form-control"
+          id="ganancias"
+          required
+          [(ngModel)]="pelicula.pelicula_ganancias"
+          name="ganancias"
+        />
+      </div>
+      <div class="form-group">
+        <label for="director">Director</label>
+        <input
+          type="text"
+          class="form-control"
+          id="director"
+          required
+          [(ngModel)]="pelicula.pelicula_director"
+          name="director"
+        />
+      </div>
+      <div class="form-check form-switch">
+        <label class="form-check-label" for="flexSwitchCheckDefault">En cartelera</label>
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="pelicula.pelicula_en_cartelera">
+      </div>
+
+      <button (click)="savePelicula()" class="btn btn-success">Enviar</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Ingresado correctamente!</h4>
+      <button class="btn btn-success" (click)="newPelicula()">Agregar</button>
+    </div>
+  </div>
+</div>

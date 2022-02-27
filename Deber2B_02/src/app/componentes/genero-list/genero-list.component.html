@@ -1,0 +1,48 @@
+<div class="list row">
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-6">
+    <h4>Lista de Géneros</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let genero of generos; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveGenero(genero, i)"
+      >
+        {{ genero.nombre_genero }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllGeneros()">
+      Eliminar todos
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentGenero">
+      <h4>Género</h4>
+      <div>
+        <label><strong>Título:</strong></label> {{ currentGenero.nombre_genero }}
+      </div>
+      <div>
+        <label><strong>Número de subgéneros:</strong></label> {{ currentGenero.num_subgeneros }}
+      </div>
+      <div>
+        <label><strong>Ganancias:</strong></label> {{ currentGenero.genero_ganancias }}
+      </div>
+      <div>
+        <label><strong>Estatus:</strong></label>
+        {{ currentGenero.genero_activo ? "Activo" : "No activo" }}
+      </div>
+
+      <a routerLink="/generos/{{ currentGenero.id }}">
+        Editar
+      </a>
+    </div>
+
+    <div *ngIf="!currentGenero">
+      <br />
+      <p>Selecciona un género</p>
+    </div>
+  </div>
+</div>

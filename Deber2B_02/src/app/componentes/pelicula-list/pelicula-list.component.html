@@ -1,0 +1,51 @@
+<div class="list row">
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-6">
+    <h4>Lista de Películas</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let pelicula of peliculas; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActivePelicula(pelicula, i)"
+      >
+        {{ pelicula.nombre_pelicula }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllPeliculas()">
+      Eliminar todas
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentPelicula">
+      <h4>Película</h4>
+      <div>
+        <label><strong>Género:</strong></label> {{ currentPelicula.genero }}
+      </div>
+      <div>
+        <label><strong>Título:</strong></label> {{ currentPelicula.nombre_pelicula }}
+      </div>
+      <div>
+        <label><strong>Ganancias:</strong></label> {{ currentPelicula.pelicula_ganancias }}
+      </div>
+      <div>
+        <label><strong>Director:</strong></label> {{ currentPelicula.pelicula_director }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentPelicula.pelicula_en_cartelera ? "En cartelera" : "No está en cartelera" }}
+      </div>
+
+      <a routerLink="/peliculas/{{ currentPelicula.id }}">
+        Editar
+      </a>
+    </div>
+
+    <div *ngIf="!currentPelicula">
+      <br />
+      <p>Selecciona una película</p>
+    </div>
+  </div>
+</div>

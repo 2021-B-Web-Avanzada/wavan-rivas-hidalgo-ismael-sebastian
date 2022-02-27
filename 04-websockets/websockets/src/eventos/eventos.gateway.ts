@@ -6,8 +6,7 @@ import { Server, Socket } from 'socket.io';
     {
         cors:{
             origin: '*',
-        },
-        namespace: 'events'
+        }
     })
 
 export class EventosGateway {
@@ -18,7 +17,6 @@ export class EventosGateway {
         @ConnectedSocket()
         socket: Socket
     ){
-        console.log(socket);
         console.log(socket.id);
         return {
             message,
