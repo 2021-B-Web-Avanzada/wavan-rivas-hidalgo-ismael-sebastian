@@ -1,0 +1,44 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Genero</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="genero.nombre_genero"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="subgeneros">Número de subgeneros</label>
+        <input
+          type="number"
+          class="form-control"
+          id="subgeneros"
+          required
+          [(ngModel)]="genero.num_subgeneros"
+          name="subgeneros"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ganancias">Ganancias del género</label>
+        <input
+          type="number"
+          class="form-control"
+          id="ganancias"
+          required
+          [(ngModel)]="genero.genero_ganancias"
+          name="ganancias"
+        />
+      </div>
+      <button (click)="saveGenero()" class="btn btn-success">Enviar</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Ingresado correctamente!</h4>
+      <button class="btn btn-success" (click)="newGenero()">Add</button>
+    </div>
+  </div>
+</div>

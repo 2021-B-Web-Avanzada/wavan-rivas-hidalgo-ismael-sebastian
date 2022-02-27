@@ -1,0 +1,86 @@
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentPelicula" class="-**63**edit-form">
+    <h4>Película</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Película</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentPelicula.nombre_pelicula"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="genero">Genero</label>
+        <input
+          type="number"
+          class="form-control"
+          id="genero"
+          [(ngModel)]="currentPelicula.genero"
+          name="genero"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ganancias">Ganancias</label>
+        <input
+          type="number"
+          class="form-control"
+          id="ganancias"
+          [(ngModel)]="currentPelicula.pelicula_ganancias"
+          name="ganancias"
+        />
+      </div>
+      <div class="form-group">
+        <label for="director">Director</label>
+        <input
+          type="text"
+          class="form-control"
+          id="director"
+          [(ngModel)]="currentPelicula.pelicula_director"
+          name="director"
+        />
+      </div>
+      <div class="form-group">
+        <label><strong>Película en cartelera:</strong></label>
+        {{ currentPelicula.pelicula_en_cartelera ? "Activo" : "No activo" }}
+      </div>
+    </form>
+
+    <button
+      class="btn btn-secondary mr-2"
+      *ngIf="currentPelicula.pelicula_en_cartelera"
+      (click)="updateActivo(false)"
+    >
+      Inactivo
+    </button>
+
+    <button
+      *ngIf="!currentPelicula.pelicula_en_cartelera"
+      class="btn btn-success mr-2"
+      (click)="updateActivo(true)"
+    >
+      En cartelera
+    </button>
+    <br>
+    <br>
+    <button class="btn btn-danger mr-2" (click)="deletePelicula()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="updatePelicula()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentPelicula">
+    <br />
+    <p>No se puede acceder a esta película</p>
+  </div>
+</div>
