@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <div class="logo-image2">
+        <img src="./assets/images/logo.png" >
+
+      </div>
+    </a>
+    <h3>MFOLD STUDIO</h3>
+    <ul class="navbar-nav ml-auto listMenu">
+      <li class="nav-item">
+        <div class="input-group">
+          <input type="text" class="form-control searchdesign" placeholder="Buscar...">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btnDesign" type="button">Ir!</button>
+          </span>
+        </div>
+      </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/tv']" routerLinkActive="router-link-active">Series</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/movies']" routerLinkActive="router-link-active">Películas
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item active">
+          <a class="navbar-brand" href="/">
+            <div class="logo-image">
+              <img src="https://mloji0n3ltha.i.optimole.com/eyiG3pg.oV_B~31d6c/w:900/h:600/q:auto/https://gk.city/wp-content/uploads/2021/02/bucaram.jpg" >
+            </div>
+          </a>
+        </li>
+
+    </ul>
+    <span class="sidebar-nav-btn"  pButton icon="pi pi-plus" label="Show" (click)="leftSidebar = true"><img src="assets/images/menu.svg"></span>
+</nav>
+
+<p-sidebar [(visible)]="leftSidebar" position="left" [baseZIndex]="10000">
+    <div class="sidebarNav">
+        <div class="menu-container">
+            <div class="sidebarMenu">
+                <img src="assets/images/home.svg">
+                <a class="sidebar-nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </div>
+            <div class="sidebarMenu">
+                <img src="assets/images/videos.svg">
+                <a class="sidebar-nav-link" [routerLink]="['/movies']" routerLinkActive="router-link-active">Movies</a>
+            </div>
+            <div class="sidebarMenu">
+                <img src="assets/images/tv.svg">
+                <a class="sidebar-nav-link" [routerLink]="['/tv']" routerLinkActive="router-link-active">TV Shows</a>
+            </div>
+            <div class="sidebarMenu genre_">
+                <img src="assets/images/tripod.svg">
+                <a class="sidebar-nav-link" [routerLink]="['/genres']" routerLinkActive="router-link-active">Genres</a>
+            </div>
+        </div>
+    </div>
+</p-sidebar>

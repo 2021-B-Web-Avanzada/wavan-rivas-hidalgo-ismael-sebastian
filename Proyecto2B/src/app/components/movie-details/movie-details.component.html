@@ -1,0 +1,69 @@
+<div class="hero">
+    <div class="backdrop">
+        <div class="lazyloaded">
+            <button class="play" type="button" (click)="openDialogMovie(this.video)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+                    <circle cx="27.5" cy="27.5" r="26.75" fill="none" stroke="#fff" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5" />
+                    <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M20.97 40.81L40.64 27.5 20.97 14.19v26.62z" /></svg>
+            </button>
+            <img class="lazyload image" src="https://image.tmdb.org/t/p/original/{{ movie?.backdrop_path }}">
+        </div>
+    </div>
+    <div class="pane">
+        <div>
+            <div class="name">{{ movie?.title }}</div>
+            <div class="meta">
+
+                <div class="info">
+                    <span class="rate">
+                        <i class="material-icons">star</i><span>{{ movie?.vote_average }}</span> /10
+                    </span>
+                    <span> {{movie?.vote_count | numberWithCommas }} Reviews</span>
+                    <span>{{movie?.release_date | date: 'yyyy' }}</span>
+                    <span>{{movie?.runtime | time  }}</span>
+                </div>
+            </div>
+            <div class="desc" >{{ movie?.overview }} </div>
+            <button type="button"  class="button button--icon trailer" (click)="openDialogMovie(this.video)">
+                <span class="mr-2"><img src="assets/images/play.svg"></span>
+                <span class="txt">Reproducir</span>
+            </button>
+            <button type="button"  class="button2 " (click)="openDialogMovie(this.video)">
+              <span class="mr-2"><img src="assets/images/play.svg"></span>
+              <span class="txt">Añadir a favoritos</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <div class="listing-space mt-20 mb-5">
+                <div class="listing__head">
+                    <h2 class="listing__title">Otros usuarios también vieron</h2>
+                </div>
+                <p-carousel [value]="recomendMovies" [numVisible]="6" [numScroll]="4" [circular]="false" [responsiveOptions]="responsiveOptions">
+                    <ng-template let-recomend pTemplate="item">
+                        <div class="listing-item-style" [routerLink]="['/movies/', recomend.id]">
+                            <div class="overlay">
+                                <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
+                            </div>
+                            <img *ngIf="recomend?.poster_path"
+                                src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{recomend?.poster_path}}">
+                            <img *ngIf="!recomend?.poster_path" src="assets/images/default-movie.png">
+                            <h6>{{ recomend?.title }}</h6>
+                            <p class="rate"><i class="material-icons">star</i><span>{{recomend?.vote_average}}</span>
+                                /10</p>
+                            <div class="year"><span>{{recomend?.release_date | date: 'yyyy'}}</span></div>
+                        </div>
+                    </ng-template>
+                </p-carousel>
+            </div>
+        </div>
+    </div>
+</div>
