@@ -1,0 +1,22 @@
+<div class="login">
+  <form class="custom-form" method="post">
+    <img src="assets/images/logo_mfold.png"
+         alt="último proyecto hpta" class ="image">
+    <h1>INICIAR SESIÓN</h1>
+    <h3>Inicia sesión para tener acceso a la web</h3>
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required="required"
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="Contraseña"
+      required="required"
+    />
+    <button type="submit" [routerLink]="['/home']" routerLinkActive="router-link-active">Log in</button>
+  </form>
+</div>
